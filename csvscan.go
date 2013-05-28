@@ -29,7 +29,7 @@ var frag bool
 
 const (
 	ps      = os.PathSeparator
-	example = "\nUsage example: \"csvexporter -in=in.csv -out=outdirectory -pre=Invoice- -suf=-2013.txt -i=2 -ni=1 -frag=true\""
+	example = "\nUsage example: \"csvscan -in=in.csv -out=outdirectory -pre=Invoice- -suf=-2013.txt -i=2 -ni=1 -frag=true\""
 )
 
 func init() {
