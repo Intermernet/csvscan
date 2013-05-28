@@ -6,9 +6,9 @@
 
 - `-frag` : Overwrite files (defaults to "false")
 - `-i` : Index of field to export (defaults to "1")
-- `-in` : CSV file to import (Must be supplied!)
+- `-in` : CSV file to import (must be supplied!)
 - `-ni` : Name Index (field to name files by - must be unique and filename safe!, defaults to line number)
-- `-out` : Output directory (Defaults to the current directory)
+- `-out` : Output directory (defaults to the current directory)
 - `-pre` : File prefix (defaults to nothing)
 - `-suf` : File suffix and extension (defaults to ".txt")
 
