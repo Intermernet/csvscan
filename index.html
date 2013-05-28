@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="csvscan : csvscan is a utility for extracting fields from CSV files into separate files" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>csvscan</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Intermernet/csvscan">View on GitHub</a>
+
+          <h1 id="project_title">csvscan</h1>
+          <h2 id="project_tagline">csvscan is a utility for extracting fields from CSV files into separate files</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Intermernet/csvscan/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Intermernet/csvscan/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h4>Usage:</h4>
+
+<p><code>csvexporter.exe -in=somefile.csv</code></p>
+
+<ul>
+<li>
+<code>-frag</code> : Overwrite files (defaults to "false")</li>
+<li>
+<code>-i</code> : Index of field to export (defaults to "1")</li>
+<li>
+<code>-in</code> : CSV file to import (must be supplied!)</li>
+<li>
+<code>-ni</code> : Name Index (field to name files by - must be unique and filename safe!, defaults to line number)</li>
+<li>
+<code>-out</code> : Output directory (defaults to the current directory)</li>
+<li>
+<code>-pre</code> : File prefix (defaults to nothing)</li>
+<li>
+<code>-suf</code> : File suffix and extension (defaults to ".txt")</li>
+</ul><p>Usage example: </p>
+
+<h4>Example usage:</h4>
+
+<p><code>csvexporter -in=in.csv -out=outdirectory -pre=Invoice- -suf=-2013.txt -i=2 -ni=1 -frag=true</code></p>
+
+<h4>Downloads</h4>
+
+<p><em>~ 1.3MB</em></p>
+
+<ul>
+<li>Linux (<a href="http://downloads.intermer.net/csvscan/bin/linux_amd64/csvscan_linux_amd64.tar.gz">64 bit tar.gz</a> | <a href="http://downloads.intermer.net/csvscan/bin/linux_386/csvscan_linux_386.tar.gz">32 bit tar.gz</a>)</li>
+<li>Windows (<a href="http://downloads.intermer.net/csvscan/bin/windows_amd64/csvscan_windows_amd64.zip">64 bit zip</a> | <a href="http://downloads.intermer.net/csvscan/bin/windows_386/csvscan_windows_386.zip">32 bit zip</a>)</li>
+<li>OSX (<a href="http://downloads.intermer.net/csvscan/bin/darwin_amd64/csvscan_darwin_amd64.zip">64 bit zip</a> | <a href="http://downloads.intermer.net/csvscan/bin/darwin_386/csvscan_darwin_386.zip">32 bit zip</a>)</li>
+</ul><p>NOTE: This program has been tested on Windows 8 64bit, and Ubuntu 13.04</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">csvscan maintained by <a href="https://github.com/Intermernet">Intermernet</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-41203083-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
