@@ -16,7 +16,7 @@ Usage example:
 
 ####Example usage:####
 
-`csvexporter -in=in.csv -out=outdirectory -pre=Invoice- -suf=-2013.txt -i=2 -ni=1 -frag=true`
+`csvscan -in=invoices.csv -out=invoices -pre=Inv- -suf=-2013.txt -i=2 -ni=1 -frag=true`
 
 ####Downloads####
 *~ 1.3MB*
