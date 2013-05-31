@@ -12,14 +12,12 @@
 - `-pre` : File prefix (defaults to nothing)
 - `-suf` : File suffix and extension (defaults to ".txt")
 
-Usage example: 
-
 ####Example usage:####
 
 `csvscan -in=invoices.csv -out=invoices -pre=Inv- -suf=-2013.txt -i=2 -ni=1 -frag=true`
 
 ####Downloads####
-*~ 1.3MB*
+*~ 500KB*
 - Linux ([64 bit tar.gz][3] | [32 bit tar.gz][4])
 - Windows ([64 bit zip][5] | [32 bit zip][6])
 - OSX ([64 bit zip][7] | [32 bit zip][8])
