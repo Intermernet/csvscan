@@ -42,21 +42,21 @@ func init() {
 	flag.BoolVar(&frag, "frag", false, "Overwrite files (defaults to \"false\")")
 }
 
-func writeFile(name string, s string, frag bool) error {
+func writeFile(name string, s string, frag bool, c chan error) {
 	var ow = os.O_EXCL
 	if frag == true {
 		ow = os.O_TRUNC
 	}
 	f, err := os.OpenFile(name, os.O_RDWR|os.O_CREATE|ow, 0666)
 	if err != nil {
-		return err
+		c <- err
 	}
 	defer f.Close()
 	_, err = f.WriteString(s)
 	if err != nil {
-		return err
+		c <- err
 	}
-	return nil
+	return
 }
 
 func main() {
@@ -67,7 +67,7 @@ func main() {
 	}
 	flag.Parse()
 	if in == "" {
-		fmt.Print("\nYou must specify an input file\n\"csvexporter.exe -in=somefile.csv\"\n")
+		fmt.Print("\nYou must specify an input file\n\"csvscan -in=somefile.csv\"\n")
 		flag.PrintDefaults()
 		fmt.Println(example)
 
@@ -84,6 +84,7 @@ func main() {
 	}
 	defer file.Close()
 	reader := csv.NewReader(file)
+	c := make(chan error)
 	n := 1
 	for {
 		record, err := reader.Read()
@@ -93,17 +94,23 @@ func main() {
 			log.Printf("\nCSV Decoding error on line %d: %s\n\n", n, err)
 			n++
 		} else if ni != 0 {
-			err = writeFile(out+pre+record[ni]+suf, record[i], frag)
-			if err != nil {
+			go writeFile(out+pre+record[ni]+suf, record[i], frag, c)
+			select {
+			case err := <-c:
 				log.Printf("\nError writing to file on line %d\n %s\n\n", n, err)
+				n++
+			default:
+				n++
 			}
-			n++
 		} else {
-			err = writeFile(out+pre+strconv.Itoa(i)+suf, record[i], frag)
-			if err != nil {
+			go writeFile(out+pre+strconv.Itoa(i)+suf, record[i], frag, c)
+			select {
+			case err := <-c:
 				log.Printf("\nError writing to file on line %d\n %s\n\n", n, err)
+				n++
+			default:
+				n++
 			}
-			n++
 		}
 	}
 }
