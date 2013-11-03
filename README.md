@@ -1,5 +1,7 @@
 ###csvscan is a utility for extracting fields from CSV files into separate files###
 
+[![Build Status](https://drone.io/github.com/Intermernet/csvscan/status.png)](https://drone.io/github.com/Intermernet/csvscan/latest)
+
 ####Usage:####
 
 `csvexporter.exe -in=somefile.csv`
