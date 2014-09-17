@@ -19,13 +19,15 @@ import (
 	"strings"
 )
 
-var in string
-var out string
-var pre string
-var suf string
-var i int
-var ni int
-var frag bool
+var (
+	in   string
+	out  string
+	pre  string
+	suf  string
+	i    int
+	ni   int
+	frag bool
+)
 
 const (
 	ps      = os.PathSeparator
@@ -88,12 +90,13 @@ func main() {
 	n := 1
 	for {
 		record, err := reader.Read()
-		if err == io.EOF {
+		switch {
+		case err == io.EOF:
 			break
-		} else if err != nil {
+		case err != nil:
 			log.Printf("\nCSV Decoding error on line %d: %s\n\n", n, err)
 			n++
-		} else if ni != 0 {
+		case ni != 0:
 			go writeFile(out+pre+record[ni]+suf, record[i], frag, c)
 			select {
 			case err := <-c:
@@ -102,7 +105,7 @@ func main() {
 			default:
 				n++
 			}
-		} else {
+		default:
 			go writeFile(out+pre+strconv.Itoa(i)+suf, record[i], frag, c)
 			select {
 			case err := <-c:
